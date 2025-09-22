@@ -1,83 +1,32 @@
-# Projeto Matrícula
+<!--
+Instruções para rodar o projeto:
 
-Sistema de Matrícula em Django
+Clonar o repositório:
+   git clone https://github.com/thamilly11/projeto-11.git
+   cd nome-do-repositorio
+Criar e ativar um ambiente virtual:
+   python -m venv venv
+   # Windows
+   venv\Scripts\activate
+   ou venv/bin/activate- linux
 
-## Sobre o Projeto
+ Instalar as dependências:
+instalar django
+   pip install -r requirements.txt
 
-Este é um projeto desenvolvido para a disciplina de **Programação para Internet**, utilizando **Django 4.2.2**, uma poderosa framework de desenvolvimento web baseada em Python. O principal objetivo é criar um sistema de matrícula que permite a realização de operações CRUD (Create, Read, Update, Delete) para Aluno, Curso e Cidade.
 
-## Recursos Utilizados
+Rodar migrações 
+   python manage.py migrate
 
-* Django 4.2.2
-* Python 3.x
-* SQLite
-* HTML/CSS/Bootstrap
+Rodar o projeto:
+   python manage.py runserver
+   Depois, abrir no navegador: http://127.0.0.1:8000/
 
-## Funcionalidades
 
-* CRUD de Alunos
-* CRUD de Cursos
-* CRUD de Cidades
+LINK DO VIDEOR (YOUTUBE)= https://drive.google.com/file/d/1c47PdZhMwLGUB82c20_2jQ8Fo5fXQr2Q/view?usp=drivesdk
 
-## Instalação
+ENTRAR COM EMAIL ESCOLAR 
 
-### Pré-requisitos
+   
+-->
 
-Certifique-se de ter o **Python** e o **Django** instalados em seu computador com Windows.
-Se ainda não tiver, instale pelo site oficial:
-
-* [Python](https://www.python.org/downloads/)
-* [Django](https://docs.djangoproject.com/en/4.2/topics/install/)
-
-### Passos para instalação
-
-1. **Clone o repositório**
-
-```bash
-git clone https://github.com/JefersonQueiroga/matricula.git
-```
-
-2. **Entre na pasta do projeto**
-
-```bash
-cd matricula
-```
-
-3. **Crie um ambiente virtual**
-
-```bash
-python -m venv venv
-```
-
-4. **Ative o ambiente virtual**
-
-```bash
-venv\Scripts\activate
-```
-
-5. **Instale as dependências do projeto**
-
-```bash
-pip install -r requirements.txt
-```
-
-6. **Execute as migrações**
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
-7. **Carregue os dados iniciais de cidades e cursos**
-
-```bash
-python manage.py loaddata dados_iniciais.json
-```
-
-8. **Inicie o servidor**
-
-```bash
-python manage.py runserver
-```
-
-Agora, o sistema estará disponível em `http://localhost:8000`.
