@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block center %}
+    <h2>Formulário de Cadastro de Curso</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome do Curso</label>
+            {{ form.nome }}
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+{% endblock %}

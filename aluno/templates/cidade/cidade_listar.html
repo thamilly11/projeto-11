@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block center %}
+
+<h1>Cidades</h1>
+  <a href="{% url 'cidade_criar' %}" class="btn btn-success mb-3">Novo Cadastro</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cidade in cidades %}
+        <tr>
+            <td>{{ cidade.id }}</td>
+            <td>{{ cidade.nome }}</td>
+            <td>
+                <a href="{% url 'cidade_editar' cidade.id %}" class="btn btn-primary">Editar</a>
+                <a href="{% url 'cidade_remover' cidade.id %}" class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

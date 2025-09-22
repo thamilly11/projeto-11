@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% block center %}
+<h2>Lista de Alunos</h2>
+
+<a href="{% url 'aluno_criar' %}" class="btn btn-success mb-3">Novo Cadastro</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Foto</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Cidade</th>
+      <th>Curso</th>
+      <th>Turno</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for aluno in alunos %}
+    <tr>
+      <td>
+        {% if aluno.foto %}
+        <img
+          src="{{ aluno.foto.url }}"
+          alt="Foto do {{ aluno.nome_aluno }}"
+          width="50"
+          height="50"
+          style="border-radius: 50%; object-fit: cover"
+        />
+        {% else %}
+        <div
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <span style="font-size: 12px">Sem foto</span>
+        </div>
+        {% endif %}
+      </td>
+      <td>{{ aluno.nome_aluno }}</td>
+      <td>{{ aluno.email }}</td>
+      <td>{{ aluno.cidade.nome }}</td>
+      <td>{{ aluno.curso.nome }}</td>
+      <td>
+        {% if aluno.turno == 'M' %} Matutino {% elif aluno.turno == 'V' %}
+        Vespertino {% elif aluno.turno == 'N' %} Noturno {% endif %}
+      </td>
+      <td>
+        {% if aluno.status == 'A' %} Ativo {% elif aluno.status == 'I' %}
+        Inativo {% endif %}
+      </td>
+      <td>
+        <a
+          href="{% url 'aluno_editar' id=aluno.id %}"
+          class="btn btn-primary btn-sm"
+          >Editar</a
+        >
+        <a
+          href="{% url 'aluno_remover' id=aluno.id %}"
+          class="btn btn-danger btn-sm"
+          >Remover</a
+        >
+        <a
+          href="{% url 'aluno_detail' pk=aluno.id %}"
+          class="btn btn-info btn-sm"
+          >Detalhes</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
